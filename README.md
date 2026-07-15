@@ -1,39 +1,24 @@
-# React Accordion
+# React Projects
 
-An accordion component built with **React 18 + Vite**. It's **single-select** by default
-(only one panel open at a time); clicking **Enable Multi Selection** switches to **multi-select**
-so several panels can stay open together.
+Each project lives in its own folder. First up:
+
+| Folder | Project | Hooks | Description |
+| --- | --- | --- | --- |
+| [`accordion/`](accordion/) | Accordion | `useState` | Single / multi-select FAQ accordion |
 
 Live: **https://moon-89.github.io/React-hook/**
 
-## Features
-
-- Single-select mode (default) — opening one item closes the others
-- Multi-select mode — toggle it on to keep multiple items open
-- Smooth expand/collapse animation, rotating +/− icon
-- All driven by the `useState` hook
-
-## Run it
+## Run a project
 
 ```bash
+cd accordion
 npm install
 npm run dev       # http://localhost:5173
-npm run build     # production build into dist/
-npm run preview   # preview the build
-```
-
-## Structure
-
-```
-src/
-├─ main.jsx         # entry — mounts <App/>
-├─ App.jsx          # page layout + heading
-├─ Accordion.jsx    # the accordion (useState for open items + mode)
-├─ Accordion.css
-└─ index.css        # theme + base styles
+npm run build     # production build into accordion/dist/
 ```
 
 ## Deploy
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the app and publishes
-`dist/` to GitHub Pages. In the repo, set **Settings → Pages → Source → GitHub Actions** once.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the `accordion/`
+project and publishes it to GitHub Pages. In the repo, set
+**Settings → Pages → Source → GitHub Actions** once.
