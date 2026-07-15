@@ -1,0 +1,46 @@
+.counter { text-align: center; width: min(90vw, 340px); }
+.counter h1 { font-size: 1.3rem; }
+.counter .tag { color: var(--muted); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+.counter .count {
+  font-size: 5rem;
+  font-weight: 800;
+  margin: 8px 0 6px;
+  font-variant-numeric: tabular-nums;
+}
+.counter .count.pos { color: #4ade80; }
+.counter .count.neg { color: #f87171; }
+.counter .count.zero { color: var(--text); }
+.counter .row { display: flex; gap: 10px; margin-top: 12px; }
+.counter button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 0;
+  flex: 1;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  transition: transform 0.08s ease, filter 0.15s ease;
+}
+.counter button:active { transform: scale(0.94); }
+.counter button:hover { filter: brightness(1.12); }
+.counter .dec { background: #ef4444; }
+.counter .reset { background: #475569; font-size: 1rem; }
+.counter .inc { background: #22c55e; }
+.counter .step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.counter .step input {
+  width: 64px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+}
