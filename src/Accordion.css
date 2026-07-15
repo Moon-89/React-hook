@@ -1,0 +1,105 @@
+.accordion {
+  width: min(92vw, 640px);
+  margin: 0 auto;
+}
+
+/* ---- Enable Multi Selection button ---- */
+.multi-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto 24px;
+  padding: 13px 24px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.multi-btn:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+.multi-btn .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--faint);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.multi-btn.on {
+  background: color-mix(in srgb, var(--accent) 16%, var(--panel));
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
+}
+.multi-btn.on .dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+/* ---- items ---- */
+.items { display: flex; flex-direction: column; gap: 12px; }
+
+.item {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.item.open {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  box-shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.6);
+}
+
+.head {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.02rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.head:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.head .q { flex: 1; line-height: 1.4; }
+.head .icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 16%, var(--panel-2));
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform 0.25s var(--ease), background 0.2s;
+}
+.item.open .head .icon { transform: rotate(180deg); background: var(--accent); color: #04121f; }
+
+/* ---- collapsible panel (smooth height animation) ---- */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.28s var(--ease);
+}
+.item.open .panel { grid-template-rows: 1fr; }
+.panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.panel-inner p {
+  padding: 0 20px 20px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+}

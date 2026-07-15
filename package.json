@@ -1,9 +1,9 @@
 {
-  "name": "react-hooks-project-pack",
+  "name": "react-accordion",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "8 hook-focused React apps (useState, useEffect, useRef) built with Vite",
+  "description": "Accordion component in React (single / multi select) built with Vite",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,8 +11,7 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.1",
