@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --bg: #0b1120;
-  --panel: #161f38;
-  --panel-2: #0f1830;
-  --border: #26324d;
-  --border-soft: #1c2740;
-  --text: #eef2fb;
-  --muted: #93a1bf;
-  --faint: #5b6b84;
-  --accent: #6ea8ff;
+  /* light page + brown accordion palette (matches the reference design) */
+  --bg: #ffffff;
+  --text: #3a2a08;
+  --muted: #7a6539;
+  --faint: #a7936a;
 
-  --r-sm: 10px;
-  --r-md: 14px;
-  --r-lg: 20px;
-  --r-xl: 28px;
-  --shadow: 0 18px 50px -12px rgba(0, 0, 0, 0.55);
-  --ring: 0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent);
+  /* accordion browns */
+  --item-bg: #5e4109;
+  --item-bg-2: #6b4b0c;
+  --item-text: #fdf8ee;
+  --btn-bg: #3b2a08;
+  --btn-bg-hover: #4a3510;
+  --accent: #7a5310;
+
+  --r-sm: 6px;
+  --r-md: 8px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -26,62 +26,38 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--text);
   min-height: 100vh;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background:
-    radial-gradient(900px 500px at 15% -10%, rgba(56, 130, 246, 0.16), transparent 60%),
-    radial-gradient(800px 500px at 100% 0%, rgba(168, 85, 247, 0.12), transparent 55%),
-    var(--bg);
-  background-attachment: fixed;
 }
 
 button { font-family: inherit; }
-input, textarea, select { font-family: inherit; }
-::selection { background: color-mix(in srgb, var(--accent) 40%, transparent); }
+::selection { background: color-mix(in srgb, var(--item-bg) 30%, transparent); }
 
-/* ---- page + hero ---- */
-.page { max-width: 760px; margin: 0 auto; padding: clamp(36px, 7vw, 72px) 18px 72px; }
+/* ---- page + heading ---- */
+.page { max-width: 640px; margin: 0 auto; padding: clamp(32px, 6vw, 60px) 18px 60px; }
 
-.hero { text-align: center; margin-bottom: clamp(28px, 5vw, 44px); animation: fade-up 0.4s var(--ease) both; }
-.hero-badge {
-  display: inline-block;
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
-  padding: 6px 14px;
-  border-radius: 999px;
-  margin-bottom: 18px;
-}
+.hero { text-align: center; margin-bottom: 28px; animation: fade-up 0.4s var(--ease) both; }
 .hero h1 {
-  font-size: clamp(2rem, 6vw, 3rem);
+  font-size: clamp(1.7rem, 5vw, 2.4rem);
   font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.05;
-  background: linear-gradient(180deg, #ffffff, #b9c6e6);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  letter-spacing: -0.5px;
+  color: var(--item-bg);
 }
 .hero p {
   color: var(--muted);
-  margin: 16px auto 0;
-  max-width: 500px;
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  margin: 12px auto 0;
+  max-width: 460px;
+  font-size: clamp(0.9rem, 2.4vw, 1rem);
   line-height: 1.6;
 }
-.hero p b { color: var(--text); font-weight: 600; }
+.hero p b { color: var(--text); font-weight: 700; }
 
 .foot-note {
   text-align: center;
   color: var(--faint);
   font-size: 0.8rem;
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-soft);
+  margin-top: 40px;
 }
 
 @keyframes fade-up {
