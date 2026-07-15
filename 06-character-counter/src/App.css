@@ -1,0 +1,33 @@
+.cc {
+  width: min(94vw, 460px);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px;
+}
+.cc h1 { font-size: 1.3rem; }
+.cc .sub { color: var(--muted); font-size: 0.8rem; margin: 4px 0 18px; }
+.cc textarea {
+  width: 100%; min-height: 130px; resize: vertical; padding: 14px; border-radius: 12px;
+  border: 1px solid var(--border); background: var(--panel-2); color: var(--text);
+  font-size: 1rem; line-height: 1.5;
+}
+.cc textarea:focus { outline: 2px solid #ec4899; }
+.cc .bar { height: 6px; background: var(--panel-2); border-radius: 999px; overflow: hidden; margin: 14px 0; }
+.cc .bar > div { height: 100%; background: #ec4899; transition: width 0.2s ease, background 0.2s; }
+.cc .bar > div.over { background: #ef4444; }
+.cc .warn { color: #f87171; font-size: 0.8rem; margin-bottom: 8px; min-height: 1.1em; }
+.cc .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.cc .stat { background: var(--panel-2); border-radius: 12px; padding: 12px; text-align: center; }
+.cc .stat b { display: block; font-size: 1.5rem; color: #f9a8d4; }
+.cc .stat span { font-size: 0.72rem; color: var(--muted); }
+.cc .row { display: flex; gap: 8px; align-items: center; margin-top: 16px; }
+.cc .row label { font-size: 0.8rem; color: var(--muted); }
+.cc .row input {
+  width: 80px; padding: 6px 10px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--panel-2); color: var(--text);
+}
+.cc .row button {
+  margin-left: auto; border: none; background: #ec4899; color: #500724;
+  font-weight: 700; padding: 10px 16px; border-radius: 10px; cursor: pointer;
+}

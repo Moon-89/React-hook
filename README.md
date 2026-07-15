@@ -1,59 +1,64 @@
 # React Hooks Project Pack
 
-8 hook-focused React apps built with **Vite + React 18**. Each app lives in its own folder
-under [`src/apps/`](src/apps/) and is reachable from a home menu. The whole pack is one installable
-project (one `npm install`), and every app is a real React component using hooks — `useState`,
-`useEffect`, and `useRef`.
+8 **standalone** hook-focused React apps — **one app per folder**. Every app is its own complete
+Vite + React 18 project with its own `package.json`, so each folder runs, builds, and deploys on
+its own. The folders are also wired together as an npm workspace, so a single `npm install` at the
+repo root sets up all 8 at once.
 
 ## Acceptance criteria → where it's covered
 
 | Requirement | Covered by |
 | --- | --- |
-| `useState`, `useEffect`, `useRef` used appropriately | Across the apps — see the table below |
-| Weather app fetches & displays **live** API data | [`src/apps/weather`](src/apps/weather/) — Open-Meteo, no key |
-| Food recipe app has **search & filter** | [`src/apps/recipe`](src/apps/recipe/) — TheMealDB, no key |
+| `useState`, `useEffect`, `useRef` used appropriately across projects | See the table below |
+| Weather app fetches & displays **live** API data | [`07-weather/`](07-weather/) — Open-Meteo, no key |
+| Food recipe app has **search & filter** | [`08-recipe/`](08-recipe/) — TheMealDB, no key |
 
 ## The 8 apps
 
-| # | App | Folder | Hooks |
+| # | Folder | App | Hooks used |
 | --- | --- | --- | --- |
-| 1 | Counter | [`src/apps/counter`](src/apps/counter/) | `useState` |
-| 2 | Todo List | [`src/apps/todo`](src/apps/todo/) | `useState` · `useEffect` (localStorage) · `useRef` (focus) |
-| 3 | Stopwatch | [`src/apps/stopwatch`](src/apps/stopwatch/) | `useState` · `useEffect` · `useRef` (interval + cleanup) |
-| 4 | Color Picker | [`src/apps/color-picker`](src/apps/color-picker/) | `useState` · `useEffect` |
-| 5 | Digital Clock | [`src/apps/digital-clock`](src/apps/digital-clock/) | `useState` · `useEffect` (tick + cleanup) |
-| 6 | Character Counter | [`src/apps/character-counter`](src/apps/character-counter/) | `useState` · `useRef` (programmatic focus) |
-| 7 | Weather (live API) | [`src/apps/weather`](src/apps/weather/) | `useState` · `useEffect` · `fetch` |
-| 8 | Recipe Finder | [`src/apps/recipe`](src/apps/recipe/) | `useState` · `useEffect` · `fetch` |
+| 1 | [`01-counter/`](01-counter/) | Counter | `useState` |
+| 2 | [`02-todo/`](02-todo/) | Todo List | `useState` · `useEffect` (localStorage) · `useRef` (focus) |
+| 3 | [`03-stopwatch/`](03-stopwatch/) | Stopwatch | `useState` · `useEffect` · `useRef` (interval + cleanup) |
+| 4 | [`04-color-picker/`](04-color-picker/) | Color Picker | `useState` · `useEffect` |
+| 5 | [`05-digital-clock/`](05-digital-clock/) | Digital Clock | `useState` · `useEffect` (tick + cleanup) |
+| 6 | [`06-character-counter/`](06-character-counter/) | Character Counter | `useState` · `useRef` (programmatic focus) |
+| 7 | [`07-weather/`](07-weather/) | Weather App | `useState` · `useEffect` · `fetch` (live API) |
+| 8 | [`08-recipe/`](08-recipe/) | Recipe Finder | `useState` · `useEffect` · `fetch` (search + filter) |
 
-## Run it
+## How to run
+
+### Run a single app (simplest)
 
 ```bash
-npm install     # once
-npm run dev     # start the dev server (http://localhost:5173)
-npm run build   # production build into dist/
-npm run preview # preview the production build
+cd 01-counter        # or any app folder
+npm install
+npm run dev          # opens http://localhost:5173
+npm run build        # production build into that folder's dist/
 ```
 
-Open the printed URL, then pick an app from the home grid.
+### Run any app from the repo root (workspace)
 
-## Project structure
+```bash
+npm install          # once — installs deps for all 8 apps
+npm run dev:counter  # dev:todo, dev:stopwatch, dev:color-picker,
+                     # dev:digital-clock, dev:character-counter,
+                     # dev:weather, dev:recipe
+npm run build:all    # build every app
+```
+
+## Each app's structure
 
 ```
-src/
-├─ main.jsx                # entry — mounts <App/> inside a HashRouter
-├─ App.jsx                 # home grid + routes to each app
-├─ index.css               # shared theme + layout
-└─ apps/
-   ├─ registry.js          # single list of the 8 apps (drives home + router)
-   ├─ counter/
-   ├─ todo/
-   ├─ stopwatch/
-   ├─ color-picker/
-   ├─ digital-clock/
-   ├─ character-counter/
-   ├─ weather/             # live API fetch
-   └─ recipe/              # search + filter
+0X-name/
+├─ package.json      # its own dependencies + dev/build scripts
+├─ vite.config.js
+├─ index.html
+└─ src/
+   ├─ main.jsx       # mounts <App/>
+   ├─ App.jsx        # the app (uses the hooks)
+   ├─ App.css        # app-specific styles
+   └─ index.css      # shared reset + theme variables
 ```
 
 ## APIs used (both free, no API key)
