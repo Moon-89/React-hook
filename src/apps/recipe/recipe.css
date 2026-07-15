@@ -1,88 +1,115 @@
-.recipe { width: min(96vw, 960px); margin: 0 auto; }
-.recipe h1 { font-size: 1.8rem; text-align: center; }
-.recipe .sub { text-align: center; color: var(--muted); font-size: 0.82rem; margin: 4px 0 22px; }
-.recipe .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
-.recipe .search { flex: 1; min-width: 220px; display: flex; gap: 8px; }
+.recipe { width: min(96vw, 980px); margin: 0 auto; }
+.recipe h1 { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.4px; text-align: center; }
+.recipe .sub { text-align: center; color: var(--muted); font-size: 0.82rem; margin: 6px 0 26px; }
+.recipe .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.recipe .search { flex: 1; min-width: 240px; display: flex; gap: 8px; }
 .recipe input,
 .recipe select {
-  padding: 12px 14px;
-  border-radius: 12px;
+  padding: 13px 15px;
+  border-radius: var(--r-md);
   border: 1px solid var(--border);
   background: var(--panel);
   color: var(--text);
   font-size: 1rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 .recipe input { flex: 1; }
 .recipe input:focus,
-.recipe select:focus { outline: 2px solid #f59e0b; }
-.recipe select { min-width: 170px; cursor: pointer; }
+.recipe select:focus { outline: none; border-color: var(--card); box-shadow: var(--ring); }
+.recipe input::placeholder { color: var(--faint); }
+.recipe select { min-width: 180px; cursor: pointer; }
 .recipe .search button {
   border: none;
-  border-radius: 12px;
-  background: #f59e0b;
+  border-radius: var(--r-md);
+  background: var(--card);
   color: #451a03;
   font-weight: 700;
-  padding: 0 18px;
+  padding: 0 20px;
   cursor: pointer;
+  transition: filter 0.15s, transform 0.1s;
 }
-.recipe .count { color: var(--muted); font-size: 0.82rem; margin-bottom: 16px; }
+.recipe .search button:hover { filter: brightness(1.08); }
+.recipe .search button:active { transform: scale(0.96); }
+.recipe .count { color: var(--muted); font-size: 0.82rem; margin-bottom: 18px; }
 .recipe .rgrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 18px;
 }
 .recipe .rcard {
-  background: var(--panel);
-  border-radius: 16px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border-soft);
+  border-radius: var(--r-lg);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.12s, box-shadow 0.12s;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s, border-color 0.2s;
+  animation: fade-up 0.4s var(--ease) both;
 }
-.recipe .rcard:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5); }
+.recipe .rcard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: color-mix(in srgb, var(--card) 45%, var(--border));
+}
 .recipe .rcard img { width: 100%; aspect-ratio: 1; object-fit: cover; display: block; }
-.recipe .rcard .body { padding: 12px 14px 16px; }
-.recipe .rcard h3 { font-size: 1rem; margin-bottom: 6px; }
+.recipe .rcard .body { padding: 13px 15px 16px; }
+.recipe .rcard h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
 .recipe .tags { display: flex; gap: 6px; flex-wrap: wrap; }
-.recipe .tag { background: var(--border); color: #cbd5e1; font-size: 0.68rem; padding: 3px 8px; border-radius: 999px; }
-.recipe .tag.area { background: #78350f; color: #fcd34d; }
-.recipe .msg { text-align: center; padding: 40px; color: var(--muted); }
+.recipe .tag {
+  background: var(--panel-2);
+  border: 1px solid var(--border-soft);
+  color: #cbd5e1;
+  font-size: 0.68rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.recipe .tag.area { background: color-mix(in srgb, var(--card) 18%, transparent); border-color: color-mix(in srgb, var(--card) 30%, transparent); color: color-mix(in srgb, var(--card) 60%, #fff); }
+.recipe .msg { text-align: center; padding: 48px; color: var(--muted); }
 
 /* modal */
 .recipe .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(4, 8, 18, 0.72);
+  backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
   padding: 20px;
-  z-index: 30;
+  z-index: 50;
+  animation: fade-up 0.2s var(--ease) both;
 }
 .recipe .modal {
+  position: relative;
   background: var(--panel);
-  border-radius: 18px;
-  max-width: 620px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  max-width: 640px;
   width: 100%;
   max-height: 88vh;
   overflow-y: auto;
+  box-shadow: var(--shadow-lg);
 }
-.recipe .modal img { width: 100%; max-height: 260px; object-fit: cover; }
-.recipe .modal .inner { padding: 22px; }
-.recipe .modal h2 { margin-bottom: 6px; }
-.recipe .modal h4 { margin-top: 14px; }
+.recipe .modal img { width: 100%; max-height: 280px; object-fit: cover; }
+.recipe .modal .inner { padding: 24px; }
+.recipe .modal h2 { margin-bottom: 8px; font-size: 1.4rem; }
+.recipe .modal h4 { margin-top: 18px; margin-bottom: 6px; color: var(--card); font-size: 0.95rem; }
 .recipe .modal ul { margin: 8px 0 6px 18px; }
-.recipe .modal p { line-height: 1.6; color: #cbd5e1; white-space: pre-line; }
-.recipe .modal .yt a { color: #f59e0b; }
+.recipe .modal ul li { margin-bottom: 3px; color: #cbd5e1; }
+.recipe .modal p { line-height: 1.7; color: #cbd5e1; white-space: pre-line; }
+.recipe .modal .yt a { color: var(--card); font-weight: 600; }
 .recipe .close {
   position: sticky;
-  top: 10px;
+  top: 12px;
   float: right;
-  background: #ef4444;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(6px);
   color: #fff;
-  border: none;
-  width: 34px;
-  height: 34px;
+  border: 1px solid var(--border);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  margin: 10px;
+  margin: 12px;
+  transition: background 0.15s;
 }
+.recipe .close:hover { background: #ef4444; border-color: #ef4444; }

@@ -1,37 +1,61 @@
-.stopwatch { text-align: center; width: min(92vw, 400px); }
-.stopwatch h1 { font-size: 1.3rem; }
-.stopwatch .tag { color: #a78bfa; font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+.stopwatch { text-align: center; width: min(92vw, 420px); }
+.stopwatch h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
+.stopwatch .tag {
+  display: inline-block;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--card);
+  background: color-mix(in srgb, var(--card) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card) 26%, transparent);
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin: 8px 0 18px;
+}
 .stopwatch .time {
-  font-size: 3.2rem;
+  font-size: clamp(3rem, 15vw, 4.2rem);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
+  letter-spacing: -2px;
+  text-shadow: 0 0 45px color-mix(in srgb, var(--card) 40%, transparent);
 }
-.stopwatch .ms { color: #a78bfa; }
-.stopwatch .row { display: flex; gap: 10px; margin: 22px 0 6px; }
+.stopwatch .ms { color: var(--card); font-size: 0.62em; }
+.stopwatch .row { display: flex; gap: 10px; margin: 24px 0 6px; }
 .stopwatch button {
   border: none;
-  border-radius: 12px;
-  padding: 14px 0;
+  border-radius: var(--r-md);
+  padding: 15px 0;
   flex: 1;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   color: #fff;
-  transition: transform 0.08s, filter 0.15s;
+  transition: transform 0.1s var(--ease), filter 0.15s;
 }
-.stopwatch button:active { transform: scale(0.94); }
-.stopwatch button:hover:not(:disabled) { filter: brightness(1.12); }
-.stopwatch button:disabled { opacity: 0.5; cursor: default; }
-.stopwatch .start { background: #22c55e; }
-.stopwatch .stop { background: #ef4444; }
-.stopwatch .lap { background: #6366f1; }
-.stopwatch .reset { background: #475569; }
-.stopwatch .laps { list-style: none; margin-top: 16px; max-height: 170px; overflow-y: auto; text-align: left; }
+.stopwatch button:active:not(:disabled) { transform: scale(0.94); }
+.stopwatch button:hover:not(:disabled) { filter: brightness(1.1); }
+.stopwatch button:disabled { opacity: 0.4; cursor: default; }
+.stopwatch .start { background: linear-gradient(180deg, #4ade80, #22c55e); box-shadow: 0 8px 20px -8px rgba(34, 197, 94, 0.7); }
+.stopwatch .stop { background: linear-gradient(180deg, #fb7185, #ef4444); box-shadow: 0 8px 20px -8px rgba(239, 68, 68, 0.7); }
+.stopwatch .lap { background: color-mix(in srgb, var(--card) 85%, #000); }
+.stopwatch .reset { background: var(--panel-2); color: var(--muted); border: 1px solid var(--border); }
+.stopwatch .reset:hover { color: var(--text); }
+.stopwatch .laps {
+  list-style: none;
+  margin-top: 18px;
+  max-height: 190px;
+  overflow-y: auto;
+  text-align: left;
+  border-top: 1px solid var(--border-soft);
+}
 .stopwatch .laps li {
   display: flex;
   justify-content: space-between;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--border);
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--border-soft);
   font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  animation: fade-up 0.25s var(--ease) both;
 }
 .stopwatch .laps li span:first-child { color: var(--muted); }
+.stopwatch .laps li span:last-child { font-family: ui-monospace, Menlo, monospace; }

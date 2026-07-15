@@ -1,21 +1,38 @@
 .clock { text-align: center; }
 .clock .time {
-  font-size: clamp(3rem, 13vw, 6rem);
+  font-size: clamp(3.2rem, 15vw, 6.5rem);
   font-weight: 800;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 2px;
-  text-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+  letter-spacing: 1px;
+  line-height: 1;
+  background: linear-gradient(180deg, #ffffff, #9fc6ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 34px color-mix(in srgb, var(--card) 45%, transparent));
 }
-.clock .ampm { font-size: 0.35em; color: var(--accent); vertical-align: middle; margin-left: 8px; }
-.clock .date { color: var(--muted); font-size: 1.1rem; margin-top: 8px; letter-spacing: 1px; }
+.clock .ampm {
+  -webkit-text-fill-color: var(--card);
+  font-size: 0.32em;
+  vertical-align: middle;
+  margin-left: 10px;
+  font-weight: 700;
+}
+.clock .date { color: var(--muted); font-size: clamp(0.95rem, 3vw, 1.15rem); margin-top: 14px; letter-spacing: 0.5px; }
 .clock .toggle {
-  margin-top: 24px;
+  margin-top: 28px;
   background: var(--panel);
   color: var(--muted);
   border: 1px solid var(--border);
-  padding: 8px 18px;
+  padding: 10px 22px;
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
 }
-.clock .toggle:hover { color: var(--accent); border-color: var(--accent); }
+.clock .toggle:hover {
+  color: var(--card);
+  border-color: color-mix(in srgb, var(--card) 55%, var(--border));
+  background: color-mix(in srgb, var(--card) 10%, var(--panel));
+}
