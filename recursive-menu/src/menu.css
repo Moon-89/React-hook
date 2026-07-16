@@ -1,0 +1,41 @@
+.layout { display: flex; min-height: 100%; }
+
+.sidebar {
+  width: min(82vw, 300px);
+  flex: 0 0 auto;
+  background: #0b3c66;
+  color: #eef4fb;
+  padding: 22px 0;
+}
+.content { flex: 1; background: #ffffff; }
+
+/* recursive list */
+.menu-list { list-style: none; }
+/* nested lists indent one step deeper */
+.menu-list .menu-list { padding-left: 20px; }
+
+.menu-item .row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 22px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.12s ease;
+}
+.menu-item .row:hover { background: rgba(255, 255, 255, 0.08); }
+
+.menu-item .label { font-size: 0.95rem; font-weight: 500; }
+
+.menu-item .toggle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  width: 18px;
+  text-align: center;
+  color: #dbe7f5;
+}
+
+/* leaf rows (no children) shouldn't look clickable */
+.menu-item:not(:has(.toggle)) > .row { cursor: default; }
+.menu-item:not(:has(.toggle)) > .row:hover { background: transparent; }
