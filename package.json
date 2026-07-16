@@ -1,0 +1,17 @@
+{
+  "name": "react-projects",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A collection of small React projects — each one lives in its own folder with its own package.json. Run a project from its folder, or use the helper scripts below from here.",
+  "scripts": {
+    "dev": "node -e \"console.log('\\nThis repo has one React app per folder. Pick one:\\n\\n  npm run dev:accordion         npm run dev:load-more\\n  npm run dev:color-generator   npm run dev:recursive-menu\\n  npm run dev:star-rating       npm run dev:weather-app\\n  npm run dev:image-slider      npm run dev:food-recipe\\n\\nOr just:  cd <folder> && npm install && npm run dev\\n')\"",
+    "dev:accordion": "cd accordion && npm install && npm run dev",
+    "dev:color-generator": "cd color-generator && npm install && npm run dev",
+    "dev:star-rating": "cd star-rating && npm install && npm run dev",
+    "dev:image-slider": "cd image-slider && npm install && npm run dev",
+    "dev:load-more": "cd load-more && npm install && npm run dev",
+    "dev:recursive-menu": "cd recursive-menu && npm install && npm run dev",
+    "dev:weather-app": "cd weather-app && npm install && npm run dev",
+    "dev:food-recipe": "cd food-recipe && npm install && npm run dev"
+  }
+}

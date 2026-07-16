@@ -13,7 +13,7 @@ Each project lives in its own folder.
 | [`weather-app/`](weather-app/) | Weather App | `useState`, `useEffect` | Live weather by city (Open-Meteo, no API key) |
 | [`food-recipe/`](food-recipe/) | Food Recipe App | `useState`, `useEffect`, Context, Router | Search recipes, view details, save favorites |
 
-Live (Accordion): **https://moon-89.github.io/React-hook/**
+**Live gallery:** **https://moon-89.github.io/React-hook/** — a landing page linking to all projects.
 
 ## Run a project
 
@@ -26,7 +26,7 @@ npm run build           # production build into that folder's dist/
 
 ## Deploy
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds one project
-and publishes it to GitHub Pages (currently `accordion/`). GitHub Pages serves a single
-site per repo — to make a different project live, change the folder in the workflow.
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds the landing page
+plus every project and publishes them together to GitHub Pages: the gallery at the root
+(`/`) and each project at its own path (`/accordion/`, `/food-recipe/`, …).
 In the repo, set **Settings → Pages → Source → GitHub Actions** once.
