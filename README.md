@@ -2,7 +2,7 @@
 
 Each project lives in its own folder.
 
-| Folder | Project | Hooks | Description |
+| Folder | Project | Hooks / APIs | Description |
 | --- | --- | --- | --- |
 | [`accordion/`](accordion/) | Accordion | `useState` | Single / multi-select FAQ accordion |
 | [`color-generator/`](color-generator/) | Random Color Generator | `useState`, `useEffect` | Generate random HEX / RGB colors |
@@ -11,6 +11,7 @@ Each project lives in its own folder.
 | [`load-more/`](load-more/) | Load More Data | `useState`, `useEffect` | Paginated product grid with a Load More button |
 | [`recursive-menu/`](recursive-menu/) | Recursive Menu | `useState` | Nested sidebar menu built with recursion |
 | [`weather-app/`](weather-app/) | Weather App | `useState`, `useEffect` | Live weather by city (Open-Meteo, no API key) |
+| [`food-recipe/`](food-recipe/) | Food Recipe App | `useState`, `useEffect`, Context, Router | Search recipes, view details, save favorites |
 
 Live (Accordion): **https://moon-89.github.io/React-hook/**
 
