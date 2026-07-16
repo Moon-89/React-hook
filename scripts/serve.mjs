@@ -45,6 +45,18 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, () => {
-  console.log(`\n✅ Gallery running at:  http://localhost:${PORT}/\n   (Ctrl+C to stop)`);
-});
+function listen(port, triesLeft = 10) {
+  server.once("error", (err) => {
+    if (err.code === "EADDRINUSE" && triesLeft > 0) {
+      console.log(`Port ${port} is busy, trying ${port + 1}…`);
+      listen(port + 1, triesLeft - 1);
+    } else {
+      throw err;
+    }
+  });
+  server.listen(port, () => {
+    console.log(`\n✅ Gallery running at:  http://localhost:${port}/\n   (Ctrl+C to stop)`);
+  });
+}
+
+listen(Number(PORT));
